@@ -46,6 +46,7 @@ class Journal(db.Model, SerializerMixin):
     __tablename__ = "journals"
 
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text)
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=current_time)
     updated_at = db.Column(db.DateTime, default=current_time, onupdate=current_time)

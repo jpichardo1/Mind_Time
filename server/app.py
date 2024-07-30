@@ -11,10 +11,6 @@ from werkzeug.exceptions import NotFound, Unauthorized
 from models import User, Journal, Task, Mood
 from sqlalchemy.exc import IntegrityError
 
-# Initialize Flask extensions
-CORS(app)
-Migrate(app, db)
-
 @app.route('/')
 def index():
     return '<h1>Mind_Time</h1>'
@@ -69,7 +65,18 @@ class Journals(Resource):
         user_id = session.get('user_id')
         if not user_id:
             return make_response({'error': 'Unauthorized'}, 401)
-        journals = Journal.query.filter_by(user_id=user_id).all()
+
+        date_str = request.args.get('date')
+        query = Journal.query.filter_by(user_id=user_id)
+
+        if date_str:
+            try:
+                date = datetime.strptime(date_str, "%Y-%m-%d")
+                query = query.filter(db.func.date(Journal.created_at) == date.date())
+            except ValueError:
+                return make_response({'error': 'Invalid date format'}, 400)
+
+        journals = query.all()
         return make_response([journal.to_dict() for journal in journals], 200)
 
     def post(self):
@@ -77,7 +84,7 @@ class Journals(Resource):
         if not user_id:
             return make_response({'error': 'Unauthorized'}, 401)
         req_json = request.get_json()
-        new_journal = Journal(content=req_json.get('content'), user_id=user_id)
+        new_journal = Journal(title=req_json['title'], content=req_json.get('content'), user_id=user_id)
         db.session.add(new_journal)
         db.session.commit()
         return make_response(new_journal.to_dict(), 201)
@@ -113,7 +120,18 @@ class Tasks(Resource):
         user_id = session.get('user_id')
         if not user_id:
             return make_response({'error': 'Unauthorized'}, 401)
-        tasks = Task.query.filter_by(user_id=user_id).all()
+           
+        date_str = request.args.get('date')
+        query = Task.query.filter_by(user_id=user_id)
+           
+        if date_str:
+            try:
+                date = datetime.strptime(date_str, "%Y-%m-%d")
+                query = query.filter(db.func.date(Task.start) <= date.date(), db.func.date(Task.end) >= date.date())
+            except ValueError:
+                return make_response({'error': 'Invalid date format'}, 400)
+           
+        tasks = query.all()
         return make_response([task.to_dict() for task in tasks], 200)
 
     def post(self):
@@ -144,9 +162,16 @@ class TasksById(Resource):
         task = Task.query.get(task_id)
         if not task:
             return make_response({'error': 'Task not found'}, 404)
+        
         req_json = request.get_json()
         for key, value in req_json.items():
+            if key in ['start', 'end']:
+                try:
+                    value = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+                except ValueError:
+                    return make_response({'error': 'Invalid date format'}, 400)
             setattr(task, key, value)
+    
         db.session.add(task)
         db.session.commit()
         return make_response(task.to_dict(), 200)
@@ -159,18 +184,23 @@ class TasksById(Resource):
         db.session.commit()
         return make_response({}, 204)
 
-    def get(self, task_id):
-        task = Task.query.get(task_id)
-        if not task:
-            return make_response({'error': 'Task not found'}, 404)
-        return make_response(task.to_dict(), 200)
-
 class Moods(Resource):
     def get(self):
         user_id = session.get('user_id')
         if not user_id:
             return make_response({'error': 'Unauthorized'}, 401)
-        moods = Mood.query.filter_by(user_id=user_id).all()
+
+        date_str = request.args.get('date')
+        query = Mood.query.filter_by(user_id=user_id)
+           
+        if date_str:
+            try:
+                date = datetime.strptime(date_str, "%Y-%m-%d")
+                query = query.filter(db.func.date(Mood.date) == date.date())
+            except ValueError:
+                return make_response({'error': 'Invalid date format'}, 400)
+           
+        moods = query.all()
         return make_response([mood.to_dict() for mood in moods], 200)
 
     def post(self):
@@ -199,11 +229,23 @@ class MoodsById(Resource):
         mood = Mood.query.get(mood_id)
         if not mood:
             return make_response({'error': 'Mood not found'}, 404)
+        
         req_json = request.get_json()
         for key, value in req_json.items():
+            if key == 'date':  
+                try:
+                    value = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+                except ValueError:
+                    return make_response({'error': 'Invalid date format. Expected YYYY-MM-DDTHH:MM:SS'}, 400)
             setattr(mood, key, value)
-        db.session.add(mood)
-        db.session.commit()
+        
+        try:
+            db.session.add(mood)
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            return make_response({'error': str(e)}, 500)
+
         return make_response(mood.to_dict(), 200)
 
     def delete(self, mood_id):
