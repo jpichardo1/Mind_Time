@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "date-fns": "^3.6.0",
+    "react": "^18.3.1",
+    "react-big-calendar": "^1.13.1",
+    "react-date-picker": "^11.0.0",
+    "react-datepicker": "^7.3.0",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "client": "^0.0.1",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0"
+  }
+}
