@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../JournalForm.css'; // Import the CSS file
 
 function JournalForm({ onSave, journal }) {
   const [title, setTitle] = useState(journal ? journal.title : '');

@@ -1,0 +1,43 @@
+/* General styles for the mood card */
+.mood-card {
+  border: 2px solid lightgrey;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 30px 20px 40px; /* Add more left margin */
+  text-align: center;
+  width: 300px;  /* Set a fixed width */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.mood-card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.mood-card p {
+  color: #666;
+  margin: 8px 0;
+}
+
+.mood-card button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #5580a0;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 8px;
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.mood-card button:hover {
+  background-color: #50697d;
+}
+

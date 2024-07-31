@@ -3,6 +3,7 @@ import JournalList from './JournalList';
 import JournalForm from './JournalForm';
 import MoodList from './MoodList';
 import MoodForm from './MoodForm';
+import '../JournalPage.css';
 
 function JournalPage() {
   const [journals, setJournals] = useState([]);
@@ -88,7 +89,7 @@ function JournalPage() {
   };
 
   return (
-    <div>
+    <div className="journal-page">
       <h2>Journal Entries</h2>
       <button onClick={() => setIsAddingJournal(true)}>Add Journal</button>
       <JournalList journals={journals} onEdit={handleEditJournal} onDelete={handleDeleteJournal} />

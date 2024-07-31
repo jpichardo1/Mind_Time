@@ -1,0 +1,40 @@
+/* General styles for the navigation bar */
+nav {
+    background-color: #333; /* Dark background color */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #ddd; /* Light grey color on hover */
+  }
+  
+  nav span {
+    margin-right: 15px;
+  }
+  
+  nav button {
+    background-color: #5580a0;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  nav button:hover {
+    background-color: #335b7a;
+  }
+  
