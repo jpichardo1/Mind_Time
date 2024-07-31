@@ -1,7 +1,7 @@
-// NavBar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import '../NavBar.css'; // Import the CSS file
 
 function NavBar() {
   const { isLoggedIn, logout } = useAuth();

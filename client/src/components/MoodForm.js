@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function MoodForm({ onSave, mood }) {
   const [moodState, setMoodState] = useState(mood ? mood.mood : '');
   const [note, setNote] = useState(mood ? mood.note : '');
   const [date, setDate] = useState(
-    mood ? new Date(mood.date).toISOString().substring(0, 16) : new Date().toISOString().substring(0, 16)
+    mood ? new Date(mood.date) : new Date()
   );
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,7 +15,7 @@ function MoodForm({ onSave, mood }) {
     if (mood) {
       setMoodState(mood.mood);
       setNote(mood.note);
-      setDate(new Date(mood.date).toISOString().substring(0, 16));
+      setDate(new Date(mood.date));
     }
   }, [mood]);
 
@@ -21,8 +23,8 @@ function MoodForm({ onSave, mood }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Format date to "YYYY-MM-DD HH:MM:SS"
-    const formattedDate = new Date(date).toISOString().replace('T', ' ').substring(0, 19);
+    // Format date to "YYYY-MM-DD HH:MM:SS" for backend
+    const formattedDate = date.toISOString().replace('T', ' ').substring(0, 19);
 
     try {
       const response = await fetch(mood ? `/moods/${mood.id}` : '/moods', {
@@ -38,7 +40,7 @@ function MoodForm({ onSave, mood }) {
         onSave(data);
         setMoodState('');
         setNote('');
-        setDate(new Date().toISOString().substring(0, 16));
+        setDate(new Date());
         setError(null);
       } else {
         const errorData = await response.json();
@@ -76,15 +78,16 @@ function MoodForm({ onSave, mood }) {
         />
       </div>
       <div>
-        <label htmlFor="date">Date</label>
-        <input
-          type="datetime-local"
-          id="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-      </div>
+  <label htmlFor="date">Date</label>
+  <DatePicker
+    id="date"
+    selected={date}
+    onChange={(date) => setDate(date)}
+    dateFormat="yyyy/MM/dd" // Date format without time
+    className="date-picker"
+    required
+  />
+</div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit" disabled={isSubmitting}>
         {mood ? 'Update' : 'Save'} Mood

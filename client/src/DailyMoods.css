@@ -1,0 +1,36 @@
+/* DailyMoods.css */
+.daily-moods {
+    padding: 20px;
+  }
+  
+  .mood-card {
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 30px 20px 40px; /* Add more left margin */
+    text-align: center;
+    width: 300px;  /* Set a fixed width */
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensure padding is included in the height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .mood-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mood-card h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .mood-card p {
+    color: #666;
+    margin: 8px 0;
+  }
+  

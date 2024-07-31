@@ -163,18 +163,18 @@ function CalendarPage() {
           selected={newTask.start}
           onChange={(start) => setNewTask({ ...newTask, start })}
           showTimeSelect
-          timeFormat="HH:mm"
+          timeFormat="hh:mm aa"
           timeIntervals={15}
-          dateFormat="yyyy-MM-dd HH:mm:ss"
+          dateFormat="yyyy-MM-dd hh:mm aa"
         />
         <DatePicker
           placeholderText="End Date"
           selected={newTask.end}
           onChange={(end) => setNewTask({ ...newTask, end })}
           showTimeSelect
-          timeFormat="HH:mm"
+          timeFormat="hh:mm aa"
           timeIntervals={15}
-          dateFormat="yyyy-MM-dd HH:mm:ss"
+          dateFormat="yyyy-MM-dd hh:mm aa"
         />
         <button onClick={handleAddTask}>
           Add Task
@@ -186,6 +186,9 @@ function CalendarPage() {
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500, margin: "50px" }}
+        views={['month', 'week', 'day', 'agenda']}
+        step={30} // Minutes in each step
+        timeslots={2} // Number of slots per step
         onSelectEvent={handleSelectEvent}
       />
       {selectedTask && (

@@ -1,0 +1,38 @@
+/* General styling for the JournalPage */
+.journal-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .journal-page h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+  }
+  
+  .journal-page button {
+    background-color: #5580a0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .journal-page button:hover {
+    background-color: #335b7a;
+    transform: translateY(-2px);
+  }
+  
+  .journal-page .journal-list,
+  .journal-page .mood-list {
+    margin-top: 20px;
+  }
+  
+  /* Add specific class selectors if needed for components like JournalList and MoodList */
+  

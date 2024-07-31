@@ -1,0 +1,56 @@
+/* DailyPage.css */
+
+/* General page styling */
+.daily-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .daily-page h1 {
+    color: #333;
+  }
+  
+  .daily-page section {
+    margin-top: 20px;
+  }
+  
+  /* Date picker styling */
+  .date-picker {
+    border: 2px solid #5580a0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .date-picker:focus {
+    border-color: #335b7a;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    background-color: #5580a0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #335b7a;
+  }
+  
+  button:active {
+    background-color: #234763;
+  }
+  
+  button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+  }
+  
