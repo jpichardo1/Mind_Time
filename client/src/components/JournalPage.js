@@ -4,11 +4,11 @@ import JournalList from './JournalList';
 import JournalForm from './JournalForm';
 import MoodList from './MoodList';
 import MoodForm from './MoodForm';
+import { useAuth } from './AuthContext'; 
 import '../JournalPage.css';
-import { useAuth } from './AuthContext'; // Import useAuth hook
 
 function JournalPage() {
-  const { isLoggedIn } = useAuth(); // Get authentication status
+  const { isLoggedIn } = useAuth(); 
   const history = useHistory();
   const [journals, setJournals] = useState([]);
   const [moods, setMoods] = useState([]);
@@ -102,14 +102,14 @@ function JournalPage() {
   }
 
   return (
-    <div className="journal-page">
+    <div>
       <h2>Journal Entries</h2>
-      <button onClick={() => setIsAddingJournal(true)}>Add Journal</button>
+      <button className="add-button" onClick={() => setIsAddingJournal(true)}>Add Journal</button>
       <JournalList journals={journals} onEdit={handleEditJournal} onDelete={handleDeleteJournal} />
       {isAddingJournal && <JournalForm onSave={handleSaveJournal} journal={editingJournal} />}
       
       <h2>Moods</h2>
-      <button onClick={() => setIsAddingMood(true)}>Add Mood</button>
+      <button className="add-button" onClick={() => setIsAddingMood(true)}>Add Mood</button>
       <MoodList moods={moods} onEdit={handleEditMood} onDelete={handleDeleteMood} />
       {isAddingMood && <MoodForm onSave={handleSaveMood} mood={editingMood} />}
     </div>

@@ -7,11 +7,11 @@ function DailyMoods({ moods }) {
   }
 
   return (
-    <div className="daily-moods">
+    <div className="mood-cards-container">
       {moods.map(mood => {
         const formattedDate = new Date(mood.date).toLocaleDateString('en-US');
         return (
-          <div key={mood.id} className="mood-card">
+          <div key={mood.id} className="mood-card-1">
             <h3>{mood.mood}</h3>
             <p>{mood.note}</p>
             <p>Date: {formattedDate}</p>

@@ -2,18 +2,18 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ebebeb; /* Light grey background */
+  background-color: #ebebeb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
-  color: #767bb2; /* Dark slate blue */
+  color: #767bb2; 
   margin-bottom: 20px;
   text-align: center;
 }
 
 .add-task {
-  background-color: #dde8ee; /* Pale blue */
+  background-color: #dde8ee; 
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 40px;
@@ -27,34 +27,29 @@ h1, h2 {
   padding: 10px;
   width: 100%;
   max-width: 400px;
-  border: none; /* Removed border */
+  border: none; 
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box-shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .add-task button {
   padding: 10px 20px;
-  background-color: #8cabc2; /* Slate blue */
+  background-color: #767bb2;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .add-task button:hover {
-  background-color: #767bb2; /* Dark slate blue */
-}
-
-.calendar {
-  background-color: #f5f5f5; /* Slightly lighter grey */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #8cabc2;
 }
 
 .task-form {
-  background-color: #dde8ee; /* Pale blue */
+  background-color: #dde8ee;
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
@@ -62,16 +57,25 @@ h1, h2 {
 
 .task-form button {
   padding: 10px 20px;
-  background-color: #8cabc2; /* Slate blue */
+  background-color: #eac0b3;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .task-form button:hover {
-  background-color: #767bb2; /* Dark slate blue */
+  background-color: lightcoral;
+}
+
+.calendar {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .react-datepicker__navigation {
@@ -83,6 +87,7 @@ h1, h2 {
   border-width: 2px 2px 5 5; 
   width: 6px; 
   height: 6px; 
+  border-color: #eac0b3; 
 }
 
 .react-datepicker__navigation--previous {

@@ -1,17 +1,13 @@
-/* src/components/Home.css */
-
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ebebeb; /* Light grey background */
-  border-radius: 10px;
+  background-color: #ebebeb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .home-header {
-  background-color: #dde8ee; /* Pale blue background */
-  padding: 40px 20px;
+  background-color: #dde8ee; 
   border-radius: 10px;
   margin-bottom: 40px;
   text-align: center;
@@ -20,7 +16,7 @@
 .home-header h1 {
   font-size: 2.5em;
   margin: 0;
-  color: #767bb2; /* Dark slate blue */
+  color: #767bb2; 
 }
 
 .home-header p {
@@ -35,13 +31,13 @@
 
 .home-content h2 {
   font-size: 2em;
-  color: #767bb2; /* Dark slate blue */
+  color: #767bb2;
   margin-bottom: 10px;
 }
 
 .home-content p, .home-content ul {
   font-size: 1.2em;
-  color: #333; /* Darker text color for readability */
+  color: #333; 
 }
 
 .home-content ul {
@@ -60,13 +56,13 @@
 
 .home-facts h2 {
   font-size: 2em;
-  color: #767bb2; /* Dark slate blue */
+  color: #767bb2; 
   margin-bottom: 20px;
   text-align: center;
 }
 
 .fact-box {
-  background-color: #b7cede; /* Light slate blue */
+  background-color: #b7cede; 
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;

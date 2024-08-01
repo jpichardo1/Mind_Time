@@ -1,5 +1,5 @@
 import React from 'react';
-import '../DailyTasks.css';
+import '../DailyTasks.css'; 
 
 function DailyTasks({ tasks }) {
   if (!tasks.length) {

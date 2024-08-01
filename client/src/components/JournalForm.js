@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../JournalForm.css'; // Import the CSS file
+import '../JournalForm.css'
 
 function JournalForm({ onSave, journal }) {
   const [title, setTitle] = useState(journal ? journal.title : '');
@@ -36,21 +36,25 @@ function JournalForm({ onSave, journal }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="journal-form-container" onSubmit={handleSubmit}>
       <input
         type="text"
+        className="journal-form-input"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Journal Title"
         required
       />
       <textarea
+        className="journal-form-textarea"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Journal Content"
         required
       />
-      <button type="submit">{journal ? 'Update' : 'Save'} Journal</button>
+      <button type="submit" className="journal-form-button">
+        {journal ? 'Update' : 'Save'} Journal
+      </button>
     </form>
   );
 }

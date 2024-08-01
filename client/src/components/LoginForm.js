@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import '../LoginForm.css';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -23,7 +24,6 @@ function LoginForm() {
       });
 
       if (response.ok) {
-        const data = await response.json();
         setMessage('Login successful!');
         login(username);
         history.push('/');
@@ -40,7 +40,7 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="username"

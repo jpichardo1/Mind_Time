@@ -1,54 +1,33 @@
-/* src/components/DailyPage.css */
-.daily-page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ebebeb; /* Light grey background */
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.daily-page h1, .daily-page h2 {
-  color: #767bb2; /* Dark slate blue */
-}
-
-.daily-page h1 {
-  text-align: center;
-}
-
 .date-picker-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.date-picker {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
-}
-
-.daily-page button {
-  padding: 10px 20px;
-  background-color: #8cabc2; /* Slate blue */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.daily-page button:hover {
-  background-color: #767bb2; /* Dark slate blue */
-}
-
-.daily-page section {
-  margin-bottom: 40px;
-}
-
-.daily-page section p {
-  color: #333;
-  font-size: 1.1em;
-}
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .custom-date-picker {
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    padding: 10px;
+    font-size: 16px; 
+    width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date-picker-container button {
+    background-color: #767bb2;
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date-picker-container button:hover {
+    background-color: #eac0b3;
+  }
+  

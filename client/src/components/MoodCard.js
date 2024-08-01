@@ -1,5 +1,5 @@
 import React from 'react';
-import '../MoodCard.css'; // Import the CSS file
+import '../MoodCard.css'; 
 
 function MoodCard({ mood, onEdit, onDelete }) {
   const formattedDate = mood.date ? new Date(mood.date).toLocaleDateString('en-US') : 'Unknown Date';
