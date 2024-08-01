@@ -1,100 +1,17 @@
-/* src/components/JournalPage.css */
-
-.journal-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ebebeb; /* Light grey background */
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.journal-page h2 {
-  color: #767bb2; /* Dark slate blue */
-  text-align: center;
-}
-
-.journal-page button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #8cabc2; /* Slate blue */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.journal-page button:hover {
-  background-color: #767bb2; /* Dark slate blue */
-}
-
-.journal-list, .mood-list {
-  margin-bottom: 40px;
-}
-
-.journal-form, .mood-form {
-  background-color: #dde8ee; /* Pale blue background */
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.journal-form input, .mood-form input, .journal-form textarea, .mood-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #b7cede; /* Light slate blue border */
-  border-radius: 5px;
-}
-
-.journal-form button, .mood-form button {
-  padding: 10px 20px;
-  background-color: #8cabc2; /* Slate blue */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.journal-form button:hover, .mood-form button:hover {
-  background-color: #767bb2; /* Dark slate blue */
-}
-
-.dropdown {
-  width: 100%;
-  max-width: 300px; /* Optional: Limit the maximum width */
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #dde8ee; /* Pale blue background */
-  border: 1px solid #b7cede; /* Light slate blue border */
-  border-radius: 5px;
-  color: #333; /* Dark text color */
-  font-size: 1em; /* Ensure the text is readable */
-  -webkit-appearance: none; /* Remove default styling in WebKit browsers */
-  -moz-appearance: none; /* Remove default styling in Firefox */
-  appearance: none; /* Remove default styling */
-  cursor: pointer;
-}
-
-.dropdown:focus {
-  outline: none; /* Remove default focus outline */
-  border-color: #767bb2; /* Change border color on focus */
-  box-shadow: 0 0 5px rgba(118, 123, 178, 0.5); /* Add a subtle shadow for focus */
-}
-
-.dropdown-arrow {
-  position: relative;
-}
-
-.dropdown-arrow::after {
-  content: '▼'; /* Unicode character for down arrow */
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none; /* Make sure the arrow doesn't block clicks */
-  font-size: 0.8em; /* Adjust size if needed */
-  color: #333; /* Dark arrow color */
-}
+.add-button {
+    padding: 10px 20px;
+    background-color: #8cabc2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s;
+  }
+  
+  .add-button:hover {
+    background-color: #767bb2; 
+  }
+  

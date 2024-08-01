@@ -71,12 +71,13 @@ function MoodForm({ onSave, mood }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="mood-form-container" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="mood"></label>
         <input
           type="text"
           id="mood"
+          className="mood-form-input"
           value={moodState}
           onChange={(e) => setMoodState(e.target.value)}
           placeholder="Mood"
@@ -87,6 +88,7 @@ function MoodForm({ onSave, mood }) {
         <label htmlFor="note"></label>
         <textarea
           id="note"
+          className="mood-form-textarea"
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Note"
@@ -96,6 +98,7 @@ function MoodForm({ onSave, mood }) {
         <label htmlFor="journal"></label>
         <select
           id="journal"
+          className="mood-form-select"
           value={journalId}
           onChange={(e) => setJournalId(e.target.value)}
           required
@@ -109,18 +112,18 @@ function MoodForm({ onSave, mood }) {
         </select>
       </div>
       <div>
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date"></label>
         <DatePicker
           id="date"
           selected={date}
           onChange={(date) => setDate(date)}
           dateFormat="yyyy/MM/dd"
-          className="date-picker-input" // Add a specific class for DatePicker
+          className="mood-form-datepicker"
           required
         />
       </div>
-      {error && <p className="error-message">{error}</p>}
-      <button type="submit" disabled={isSubmitting}>
+      {error && <p className="mood-form-error">{error}</p>}
+      <button type="submit" className="mood-form-button" disabled={isSubmitting}>
         {mood ? 'Update' : 'Save'} Mood
       </button>
     </form>

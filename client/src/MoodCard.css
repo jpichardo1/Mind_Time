@@ -1,33 +1,54 @@
-/* src/components/MoodCard.css */
 .mood-card {
-  background-color: #b7cede; /* Light slate blue background */
-  padding: 20px;
+  border: 2px solid lightgrey;
   border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin: 20px 30px 20px 40px;
+  text-align: center;
+  width: 300px; 
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f9f9f9; 
+  box-sizing: border-box; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .mood-card h3 {
-  margin-top: 0;
-  color: #767bb2; /* Dark slate blue */
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 .mood-card p {
-  color: #333; /* Dark text for readability */
-  font-size: 1.1em;
+  color: #666;
+  margin: 8px 0;
 }
 
 .mood-card button {
-  margin-top: 10px;
+  display: block;
+  width: 100%;
   padding: 8px 16px;
-  background-color: #8cabc2; /* Slate blue */
-  color: white;
+  background-color: #8cabc2; 
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  color: white;
   cursor: pointer;
-  margin-right: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+  box-sizing: border-box; 
 }
 
 .mood-card button:hover {
-  background-color: #767bb2; /* Dark slate blue */
+  background-color: #767bb2; 
+}
+
+.mood-card .edit-button {
+  background-color: #8cabc2; 
+  margin-top: 8px;
+}
+
+.mood-card .edit-button:hover {
+  background-color: #767bb2; 
 }

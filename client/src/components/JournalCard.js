@@ -1,8 +1,7 @@
 import React from 'react';
-import '../JournalCard.css'; // Import the CSS file
+import '../JournalCard.css'; 
 
 function JournalCard({ journal, onEdit, onDelete }) {
-  // Format the created_at and updated_at dates to show only the date part
   const formattedCreatedDate = new Date(journal.created_at).toLocaleDateString('en-US');
   const formattedUpdatedDate = new Date(journal.updated_at).toLocaleDateString('en-US');
 

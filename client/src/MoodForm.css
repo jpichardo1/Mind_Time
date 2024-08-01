@@ -1,65 +1,77 @@
-/* General styles for the form */
-form {
+.mood-form-container {
+  max-width: 400px;
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: #dde8ee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: #f7f7f7; /* Light grey background */
-  padding: 50px;
+  align-items: center; 
+}
+
+.mood-form {
+  background-color: #dde8ee;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 800px; /* Increased max-width for longer input boxes */
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
 }
 
-/* Styling for input fields, textarea, and select dropdown */
-form input,
-form textarea,
-form select {
-  width: 220%;
+.mood-form-input,
+.mood-form-textarea,
+.mood-form .react-datepicker-wrapper input {
+  margin: 10px 0;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 4px;
-  font-size: 1em;
-  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 400px; 
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   transition: border-color 0.3s;
-  background-color: #f9f9f9; /* Light background for input fields */
+  box-sizing: border-box;
 }
 
-/* Focus state for inputs, textarea, and select */
-form input:focus,
-form textarea:focus,
-form select:focus {
-  border-color: #5580a0; /* Blue border on focus */
+.mood-form-input:focus,
+.mood-form-textarea:focus,
+.mood-form .react-datepicker-wrapper input:focus {
+  border-color: #eac0b3; 
   outline: none;
 }
 
-/* Styling specifically for textarea */
-form textarea {
-  resize: vertical; /* Allow vertical resizing */
+.mood-form-textarea {
+  resize: vertical; 
   min-height: 100px;
 }
 
-/* Styling specifically for the DatePicker input */
-.date-picker-input {
-  width: 75%;
-  padding: 10px;
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 4px;
-  font-size: 1em;
-  background-color: #f9f9f9; /* Light background */
-  transition: border-color 0.3s;
+.mood-form .react-datepicker-wrapper {
+  width: 100%;
+  max-width: 400px; 
+  margin: 10px 0;
 }
 
-.date-picker-input:focus {
-  border-color: #5580a0; /* Blue border on focus */
+.mood-form .react-datepicker-wrapper input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.mood-form .react-datepicker-wrapper input:focus {
+  border-color: #eac0b3;
   outline: none;
 }
 
-/* Styling for the submit button */
-form button {
-  align-self: flex-end;
-  background-color: #5580a0; /* Blue background */
+.mood-form-button {
+  background-color: #8cabc2; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -67,28 +79,62 @@ form button {
   cursor: pointer;
   font-size: 1em;
   transition: background-color 0.3s;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 140px;
 }
 
-/* Hover and disabled states for the button */
-form button:hover:not(:disabled) {
-  background-color: #335b7a; /* Darker blue on hover */
+.mood-form-button:hover {
+  background-color: #767bb2; 
 }
 
-form button:disabled {
-  background-color: #bbb; /* Grey background when disabled */
-  cursor: not-allowed;
+.mood-form-select {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px; 
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  background-color: #ffffff; 
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  appearance: none; 
 }
 
-/* Specific styling for the select dropdown */
-form select {
-  appearance: none; /* Remove default dropdown styling */
-  background-color: #f9f9f9; /* Light background */
-  border: 1px solid #ccc; /* Match input field border */
-  border-radius: 4px;
-  padding-right: 30px; /* Space for custom arrow */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="none" stroke="%23333" stroke-width="2" d="M1 3l4 4 4-4"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-  background-size: 10px 10px;
+.react-datepicker {
+  background-color: #ffffff; 
+  border-radius: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
+.react-datepicker__header {
+  background-color: #eac0b3;
+  border-bottom: 1px solid #eac0b3; 
+}
+
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+  border-color: #eac0b3; 
+}
+
+.react-datepicker__navigation-icon::before {
+  border-width: 2px 2px 5 5;
+  width: 6px;
+  height: 6px;
+  border-color: #fff;
+}
+
+.react-datepicker__day {
+  color: #333; 
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #eac0b3; 
+  color: white; 
+}
+
+.react-datepicker__day--today {
+  font-weight: bold; 
+}

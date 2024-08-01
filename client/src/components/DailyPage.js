@@ -3,13 +3,13 @@ import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../DailyPage.css';
-import { useAuth } from './AuthContext'; // Import useAuth hook
+import { useAuth } from './AuthContext'; 
 import DailyEntries from './DailyEntries';
 import DailyTasks from './DailyTasks';
 import DailyMoods from './DailyMoods';
 
 function DailyPage() {
-  const { isLoggedIn } = useAuth(); // Get authentication status
+  const { isLoggedIn } = useAuth(); 
   const history = useHistory();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [fetchDate, setFetchDate] = useState(new Date());
@@ -55,7 +55,6 @@ function DailyPage() {
     setFetchDate(selectedDate);
   };
 
-  // If the user is not logged in, show a redirect message
   if (!isLoggedIn) {
     return <p>Redirecting to login...</p>;
   }
@@ -68,7 +67,7 @@ function DailyPage() {
           selected={selectedDate}
           onChange={(date) => setSelectedDate(date)}
           placeholderText="Select Date"
-          className="date-picker"
+          className="custom-date-picker"
         />
         <button onClick={handleFindClick}>Find</button>
       </div>

@@ -8,8 +8,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import TaskForm from './TaskForm';
 import moment from 'moment';
-import { useAuth } from './AuthContext'; // Import useAuth hook
-import '../CalendarPage.css'; // Import the CSS file
+import { useAuth } from './AuthContext';
+import '../CalendarPage.css'; 
 
 const locales = {
   'en-US': enUS,
@@ -24,7 +24,7 @@ const localizer = dateFnsLocalizer({
 });
 
 function CalendarPage() {
-  const { isLoggedIn } = useAuth(); // Get authentication status
+  const { isLoggedIn } = useAuth();
   const history = useHistory();
   const [tasks, setTasks] = useState([]);
   const [events, setEvents] = useState([]);
@@ -202,8 +202,8 @@ function CalendarPage() {
           endAccessor="end"
           style={{ height: 500, margin: "50px 0" }}
           views={['month', 'week', 'day', 'agenda']}
-          step={30} // Minutes in each step
-          timeslots={2} // Number of slots per step
+          step={30}
+          timeslots={2}
           onSelectEvent={handleSelectEvent}
         />
       </div>

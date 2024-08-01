@@ -1,4 +1,3 @@
-/* General styles for the navigation bar */
 nav {
   background-color: #767bb2;
   padding: 5px 10px;
@@ -42,5 +41,5 @@ nav button {
 }
 
 nav button:hover {
-  background-color: #335b7a;
+  background-color: lightcoral;
 }

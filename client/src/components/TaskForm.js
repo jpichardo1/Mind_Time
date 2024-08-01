@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../TaskForm.css'; 
 
 const TaskForm = ({ task, onSave }) => {
   const [taskData, setTaskData] = useState({
@@ -32,7 +33,7 @@ const TaskForm = ({ task, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="task-form-custom" onSubmit={handleSubmit}>
       <input
         type="text"
         value={taskData.description}
@@ -44,19 +45,21 @@ const TaskForm = ({ task, onSave }) => {
         selected={taskData.start}
         onChange={(date) => setTaskData({ ...taskData, start: date })}
         showTimeSelect
-        timeFormat="HH:mm"
+        timeFormat="hh:mm aa" 
         timeIntervals={15}
-        dateFormat="yyyy-MM-dd HH:mm:ss"
-        placeholderText="Start Date (YYYY-MM-DD HH:mm:ss)"
+        dateFormat="yyyy-MM-dd hh:mm aa"
+        placeholderText="Start Date (YYYY-MM-DD hh:mm aa)"
+        className="react-datepicker-custom"
       />
       <DatePicker
         selected={taskData.end}
         onChange={(date) => setTaskData({ ...taskData, end: date })}
         showTimeSelect
-        timeFormat="HH:mm"
+        timeFormat="hh:mm aa" 
         timeIntervals={15}
-        dateFormat="yyyy-MM-dd HH:mm:ss"
-        placeholderText="End Date (YYYY-MM-DD HH:mm:ss)"
+        dateFormat="yyyy-MM-dd hh:mm aa" 
+        placeholderText="End Date (YYYY-MM-DD hh:mm aa)"
+        className="react-datepicker-custom"
       />
       <button type="submit">Save Task</button>
     </form>

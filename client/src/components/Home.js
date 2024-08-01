@@ -34,7 +34,7 @@ function Home() {
         <div className="fact-box">
           <h3>Personal Growth</h3>
           <p>Engaging in self-reflection can foster a deeper understanding of oneself and lead to personal growth.</p>
-          <p>Our platform offers resources and insights to help you on your journey to self-discovery and improvement.</p>
+          <p>Our platform offers insights to help you on your journey to self-discovery and improvement.</p>
         </div>
       </section>
     </div>

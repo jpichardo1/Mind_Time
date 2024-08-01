@@ -1,67 +1,56 @@
-/* General styles for the journal card */
 .journal-card {
-  border: 2px solid lightgrey;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px 30px 20px 40px; /* Add more left margin */
-  text-align: center;
-  width: 300px;  /* Set a fixed width */
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #f9f9f9;
-  box-sizing: border-box; /* Ensure padding is included in the height */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
-}
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 30px 20px 40px;
+    text-align: center;
+    width: 300px;  
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    box-sizing: border-box; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
 
-.journal-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.journal-card h3 {
-  margin-top: 0;
-  color: #333;
-  font-size: 1.5em;
-}
-
-.journal-card p {
-  color: #666;
-  margin: 8px 0;
-}
-
-.journal-card button {
-  display: block;
-  width: 100%;
-  padding: 8px 16px;
-  background-color: #5580a0;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 8px;
-  box-sizing: border-box; /* Ensure padding is included in the height */
-}
-
-.journal-card button:hover {
-  background-color: #335b7a;
-}
-
-.journal-card .delete-button {
-  background-color: #ff6666;
-  margin-top: 8px;
-}
-
-.journal-card .delete-button:hover {
-  background-color: #c0392b;
-}
-
-.journal-card .edit-button {
-  background-color: #5580a0;
-  margin-top: 8px;
-}
-
-.journal-card .edit-button:hover {
-  background-color: #335b7a;
-}
+  }
+  
+  .journal-card h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+  
+  .journal-card p {
+    color: #666;
+    margin: 8px 0;
+  }
+  
+  .journal-card button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #8cabc2;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 8px;
+    box-sizing: border-box; 
+  }
+  
+  .journal-card button:hover {
+    background-color: #767bb2; 
+  }
+  
+  .journal-card .edit-button {
+    background-color: #8cabc2; 
+    margin-top: 8px;
+  }
+  
+  .journal-card .edit-button:hover {
+    background-color: #767bb2; 
+  }
+  

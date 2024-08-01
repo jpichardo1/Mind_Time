@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import '../RegisterForm.css';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -22,8 +23,8 @@ function RegisterForm() {
       const data = await response.json();
       if (response.ok) {
         setMessage('Registration successful!');
-        login(username); // Automatically log in the user
-        history.push('/'); // Redirect to the homepage
+        login(username); 
+        history.push('/'); 
       } else {
         setMessage(data.error || 'Registration failed');
       }
@@ -34,7 +35,7 @@ function RegisterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="register-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="username"
