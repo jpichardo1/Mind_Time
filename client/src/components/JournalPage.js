@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import JournalList from './JournalList';
 import JournalForm from './JournalForm';
 import MoodList from './MoodList';
 import MoodForm from './MoodForm';
 import '../JournalPage.css';
+import { useAuth } from './AuthContext'; // Import useAuth hook
 
 function JournalPage() {
+  const { isLoggedIn } = useAuth(); // Get authentication status
+  const history = useHistory();
   const [journals, setJournals] = useState([]);
   const [moods, setMoods] = useState([]);
   const [editingJournal, setEditingJournal] = useState(null);
@@ -14,6 +18,11 @@ function JournalPage() {
   const [isAddingMood, setIsAddingMood] = useState(false);
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      history.push('/login');
+      return;
+    }
+
     async function fetchData() {
       try {
         const journalResponse = await fetch('/journals');
@@ -30,7 +39,7 @@ function JournalPage() {
       }
     }
     fetchData();
-  }, []);
+  }, [isLoggedIn, history]);
 
   const handleSaveJournal = (newJournal) => {
     if (editingJournal) {
@@ -87,6 +96,10 @@ function JournalPage() {
       console.error('Error deleting mood:', error);
     }
   };
+
+  if (!isLoggedIn) {
+    return <p>Redirecting to login...</p>;
+  }
 
   return (
     <div className="journal-page">

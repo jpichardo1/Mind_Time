@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Calendar as BigCalendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay } from 'date-fns';
 import enUS from 'date-fns/locale/en-US';
@@ -7,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import TaskForm from './TaskForm';
 import moment from 'moment';
+import { useAuth } from './AuthContext'; // Import useAuth hook
 
 const locales = {
   'en-US': enUS,
@@ -21,12 +23,19 @@ const localizer = dateFnsLocalizer({
 });
 
 function CalendarPage() {
+  const { isLoggedIn } = useAuth(); // Get authentication status
+  const history = useHistory();
   const [tasks, setTasks] = useState([]);
   const [events, setEvents] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
   const [newTask, setNewTask] = useState({ description: "", start: null, end: null });
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      history.push('/login');
+      return;
+    }
+
     async function fetchTasks() {
       try {
         const response = await fetch('/tasks', {
@@ -53,7 +62,7 @@ function CalendarPage() {
     }
 
     fetchTasks();
-  }, []);
+  }, [isLoggedIn, history]);
 
   const handleAddTask = async () => {
     const formattedTask = {
@@ -146,6 +155,10 @@ function CalendarPage() {
     const task = tasks.find(task => task.id === event.id);
     setSelectedTask(task);
   };
+
+  if (!isLoggedIn) {
+    return <p>Redirecting to login...</p>;
+  }
 
   return (
     <div>
