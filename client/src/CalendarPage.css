@@ -57,7 +57,7 @@ h1, h2 {
 
 .task-form button {
   padding: 10px 20px;
-  background-color: #eac0b3;
+  background-color: #767BB2;
   color: white;
   border: none;
   border-radius: 5px;
@@ -68,7 +68,7 @@ h1, h2 {
 }
 
 .task-form button:hover {
-  background-color: lightcoral;
+  background-color: #8cabc2;
 }
 
 .calendar {
