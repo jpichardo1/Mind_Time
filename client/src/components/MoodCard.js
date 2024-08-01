@@ -2,11 +2,7 @@ import React from 'react';
 import '../MoodCard.css'; // Import the CSS file
 
 function MoodCard({ mood, onEdit, onDelete }) {
-  let formattedDate = 'Unknown Date';
-  if (mood.date) {
-    const parsedDate = new Date(mood.date);
-    formattedDate = isNaN(parsedDate) ? 'Invalid Date' : parsedDate.toLocaleDateString('en-US');
-  }
+  const formattedDate = mood.date ? new Date(mood.date).toLocaleDateString('en-US') : 'Unknown Date';
 
   return (
     <div className="mood-card">

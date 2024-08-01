@@ -61,15 +61,17 @@ function DailyPage() {
   }
 
   return (
-    <div>
+    <div className="daily-page-container">
       <h1>Daily</h1>
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        placeholderText="Select Date"
-        className="date-picker"
-      />
-      <button onClick={handleFindClick}>Find</button>
+      <div className="date-picker-container">
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          placeholderText="Select Date"
+          className="date-picker"
+        />
+        <button onClick={handleFindClick}>Find</button>
+      </div>
       <section>
         <h2>Journal Entries</h2>
         {entries.length > 0 ? (

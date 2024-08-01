@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../MoodForm.css';
 
 function MoodForm({ onSave, mood }) {
   const [moodState, setMoodState] = useState(mood ? mood.mood : '');
@@ -16,7 +17,6 @@ function MoodForm({ onSave, mood }) {
       try {
         const response = await fetch('/journals');
         const data = await response.json();
-        console.log('Fetched journals:', data);
         setJournals(data);
       } catch (error) {
         console.error('Error fetching journals:', error);
@@ -46,7 +46,7 @@ function MoodForm({ onSave, mood }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ mood: moodState, note, date: formattedDate, journal_id:journalId }),
+        body: JSON.stringify({ mood: moodState, note, date: formattedDate, journal_id: journalId }),
       });
 
       if (response.ok) {
@@ -73,7 +73,7 @@ function MoodForm({ onSave, mood }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="mood">Mood</label>
+        <label htmlFor="mood"></label>
         <input
           type="text"
           id="mood"
@@ -84,7 +84,7 @@ function MoodForm({ onSave, mood }) {
         />
       </div>
       <div>
-        <label htmlFor="note">Note</label>
+        <label htmlFor="note"></label>
         <textarea
           id="note"
           value={note}
@@ -93,7 +93,7 @@ function MoodForm({ onSave, mood }) {
         />
       </div>
       <div>
-        <label htmlFor="journal">Journal</label>
+        <label htmlFor="journal"></label>
         <select
           id="journal"
           value={journalId}
@@ -115,11 +115,11 @@ function MoodForm({ onSave, mood }) {
           selected={date}
           onChange={(date) => setDate(date)}
           dateFormat="yyyy/MM/dd"
-          className="date-picker"
+          className="date-picker-input" // Add a specific class for DatePicker
           required
         />
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       <button type="submit" disabled={isSubmitting}>
         {mood ? 'Update' : 'Save'} Mood
       </button>

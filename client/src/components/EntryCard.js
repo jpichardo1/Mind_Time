@@ -7,8 +7,8 @@ function EntryCard({ entry }) {
 
   return (
     <div className="entry-card">
-      <h3>{entry.title || 'No Title'}</h3>
-      <p>{entry.content || 'No Content'}</p>
+      <h3>Title: {entry.title || 'No Title'}</h3>
+      <p>Entry: {entry.content || 'No Content'}</p>
       <p>Created: {formattedCreatedDate}</p>
       <p>Updated: {formattedUpdatedDate}</p>
     </div>
