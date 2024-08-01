@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../DailyPage.css';
+import { useAuth } from './AuthContext'; // Import useAuth hook
 import DailyEntries from './DailyEntries';
 import DailyTasks from './DailyTasks';
 import DailyMoods from './DailyMoods';
 
 function DailyPage() {
+  const { isLoggedIn } = useAuth(); // Get authentication status
+  const history = useHistory();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [fetchDate, setFetchDate] = useState(new Date());
   const [entries, setEntries] = useState([]);
@@ -14,6 +18,11 @@ function DailyPage() {
   const [moods, setMoods] = useState([]);
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      history.push('/login');
+      return;
+    }
+
     async function fetchData() {
       try {
         const offset = fetchDate.getTimezoneOffset() * 60000;
@@ -40,11 +49,16 @@ function DailyPage() {
     }
 
     fetchData();
-  }, [fetchDate]);
+  }, [fetchDate, isLoggedIn, history]);
 
   const handleFindClick = () => {
     setFetchDate(selectedDate);
   };
+
+  // If the user is not logged in, show a redirect message
+  if (!isLoggedIn) {
+    return <p>Redirecting to login...</p>;
+  }
 
   return (
     <div>

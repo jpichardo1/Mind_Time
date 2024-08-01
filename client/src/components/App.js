@@ -9,7 +9,6 @@ import DailyPage from './DailyPage';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { AuthProvider } from './AuthContext';
-import Logout from './Logout';
 
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
             <Route path="/journals" component={JournalPage} />
             <Route path="/daily" component={DailyPage} />
             <Route path="/login" component={LoginForm} />
-            <Route path="/logout" component={Logout} />
             <Route path="/register" component={RegisterForm} />
           </Switch>
         </div>

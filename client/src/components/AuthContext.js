@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    setIsLoggedIn(true);
+    setIsLoggedIn(false);
     setUsername('');
     localStorage.removeItem('username');
   };
