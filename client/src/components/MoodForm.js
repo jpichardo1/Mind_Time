@@ -5,17 +5,32 @@ import 'react-datepicker/dist/react-datepicker.css';
 function MoodForm({ onSave, mood }) {
   const [moodState, setMoodState] = useState(mood ? mood.mood : '');
   const [note, setNote] = useState(mood ? mood.note : '');
-  const [date, setDate] = useState(
-    mood ? new Date(mood.date) : new Date()
-  );
+  const [date, setDate] = useState(mood ? new Date(mood.date) : new Date());
+  const [journalId, setJournalId] = useState(mood ? mood.journalId : '');
+  const [journals, setJournals] = useState([]);
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    async function fetchJournals() {
+      try {
+        const response = await fetch('/journals');
+        const data = await response.json();
+        console.log('Fetched journals:', data);
+        setJournals(data);
+      } catch (error) {
+        console.error('Error fetching journals:', error);
+        setError('Error fetching journals.');
+      }
+    }
+
+    fetchJournals();
+
     if (mood) {
       setMoodState(mood.mood);
       setNote(mood.note);
       setDate(new Date(mood.date));
+      setJournalId(mood.journalId || '');
     }
   }, [mood]);
 
@@ -23,7 +38,6 @@ function MoodForm({ onSave, mood }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Format date to "YYYY-MM-DD HH:MM:SS" for backend
     const formattedDate = date.toISOString().replace('T', ' ').substring(0, 19);
 
     try {
@@ -32,7 +46,7 @@ function MoodForm({ onSave, mood }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ mood: moodState, note, date: formattedDate }),
+        body: JSON.stringify({ mood: moodState, note, date: formattedDate, journal_id:journalId }),
       });
 
       if (response.ok) {
@@ -41,6 +55,7 @@ function MoodForm({ onSave, mood }) {
         setMoodState('');
         setNote('');
         setDate(new Date());
+        setJournalId('');
         setError(null);
       } else {
         const errorData = await response.json();
@@ -78,16 +93,32 @@ function MoodForm({ onSave, mood }) {
         />
       </div>
       <div>
-  <label htmlFor="date">Date</label>
-  <DatePicker
-    id="date"
-    selected={date}
-    onChange={(date) => setDate(date)}
-    dateFormat="yyyy/MM/dd" // Date format without time
-    className="date-picker"
-    required
-  />
-</div>
+        <label htmlFor="journal">Journal</label>
+        <select
+          id="journal"
+          value={journalId}
+          onChange={(e) => setJournalId(e.target.value)}
+          required
+        >
+          <option value="">Select Journal</option>
+          {journals.map((journal) => (
+            <option key={journal.id} value={journal.id}>
+              {journal.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="date">Date</label>
+        <DatePicker
+          id="date"
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="yyyy/MM/dd"
+          className="date-picker"
+          required
+        />
+      </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit" disabled={isSubmitting}>
         {mood ? 'Update' : 'Save'} Mood

@@ -218,7 +218,8 @@ class Moods(Resource):
             date=date,
             mood=req_json.get('mood'),
             note=req_json.get('note'),
-            user_id=user_id
+            user_id=user_id,
+            journal_id=req_json.get('journal_id')
         )
         db.session.add(new_mood)
         db.session.commit()

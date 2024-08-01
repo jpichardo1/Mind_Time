@@ -20,7 +20,7 @@ class User(db.Model, SerializerMixin):
     tasks = db.relationship('Task', back_populates='user', cascade='all, delete-orphan')
     moods = db.relationship('Mood', back_populates='user', cascade='all, delete-orphan')
 
-    serialize_rules = ('-journals.user', '-tasks.user', '-moods.user', '-_password_hash')
+    serialize_rules = ('-journals.user', '-tasks.user', '-moods.user', '-moods.journal', '-_password_hash', '-moods.journal')
 
     @validates('username')
     def validate_username(self, key, username):
@@ -53,8 +53,9 @@ class Journal(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship('User', back_populates='journals')
+    moods = db.relationship('Mood', back_populates='journal')
     
-    serialize_rules = ('-user.journals',)
+    serialize_rules = ('-user.journals', '-moods.journal', '-moods.user')
 
     @validates('content')
     def validate_content(self, key, content):
@@ -102,10 +103,12 @@ class Mood(db.Model, SerializerMixin):
     mood = db.Column(db.String, nullable=False)
     note = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    journal_id = db.Column(db.Integer, db.ForeignKey('journals.id'))
 
     user = db.relationship('User', back_populates='moods')
+    journal = db.relationship('Journal', back_populates='moods')
 
-    serialize_rules = ('-user.moods',)
+    serialize_rules = ('-user.moods', '-journal.moods')
 
     @validates('mood')
     def validate_mood(self, key, mood):
