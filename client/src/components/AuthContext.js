@@ -11,7 +11,6 @@ export function AuthProvider({ children }) {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    // Check if the user is already logged in (based on localStorage data)
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setIsLoggedIn(true);
@@ -26,7 +25,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    setIsLoggedIn(false);
+    setIsLoggedIn(true);
     setUsername('');
     localStorage.removeItem('username');
   };

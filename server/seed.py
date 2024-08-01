@@ -73,19 +73,22 @@ if __name__ == '__main__':
             date=datetime.now(timezone.utc),
             mood="happy",
             note="Had a great day at work!",
-            user_id=user1.id
+            user_id=user1.id,
+            journal_id=journal1.id
         )
         mood2 = Mood(
             date=datetime.now(timezone.utc),
             mood="sad",
             note="Missed my friend's party.",
-            user_id=user2.id
+            user_id=user2.id,
+            journal_id=journal2.id
         )
         mood3 = Mood(
             date=datetime.now(timezone.utc),
             mood="excited",
             note="Started a new project!",
-            user_id=user3.id
+            user_id=user3.id,
+            journal_id=journal3.id
         )
 
         db.session.add_all([mood1, mood2, mood3])

@@ -6,11 +6,13 @@ function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch('/login', {
         method: 'POST',
@@ -19,7 +21,7 @@ function LoginForm() {
         },
         body: JSON.stringify({ username, password }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         setMessage('Login successful!');
@@ -32,9 +34,10 @@ function LoginForm() {
     } catch (error) {
       setMessage('An error occurred');
       console.error('Fetch error:', error);
+    } finally {
+      setIsLoading(false);
     }
   }
-  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -45,6 +48,7 @@ function LoginForm() {
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         required
+        disabled={isLoading}
       />
       <input
         type="password"
@@ -53,8 +57,11 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         required
+        disabled={isLoading}
       />
-      <button type="submit">Login</button>
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? 'Logging in...' : 'Login'}
+      </button>
       {message && <p>{message}</p>}
     </form>
   );
