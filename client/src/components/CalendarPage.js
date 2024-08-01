@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import TaskForm from './TaskForm';
 import moment from 'moment';
 import { useAuth } from './AuthContext'; // Import useAuth hook
+import '../CalendarPage.css'; // Import the CSS file
 
 const locales = {
   'en-US': enUS,
@@ -161,10 +162,10 @@ function CalendarPage() {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Calendar</h1>
       <h2>Add New Task</h2>
-      <div>
+      <div className="add-task">
         <input
           type="text"
           placeholder="Add Description"
@@ -193,25 +194,27 @@ function CalendarPage() {
           Add Task
         </button>
       </div>
-      <BigCalendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 500, margin: "50px" }}
-        views={['month', 'week', 'day', 'agenda']}
-        step={30} // Minutes in each step
-        timeslots={2} // Number of slots per step
-        onSelectEvent={handleSelectEvent}
-      />
+      <div className="calendar">
+        <BigCalendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 500, margin: "50px 0" }}
+          views={['month', 'week', 'day', 'agenda']}
+          step={30} // Minutes in each step
+          timeslots={2} // Number of slots per step
+          onSelectEvent={handleSelectEvent}
+        />
+      </div>
       {selectedTask && (
-        <>
+        <div className="task-form">
           <TaskForm
             onSave={handleEditTask}
             task={selectedTask}
           />
           <button onClick={() => handleDeleteTask(selectedTask.id)}>Delete Task</button>
-        </>
+        </div>
       )}
     </div>
   );

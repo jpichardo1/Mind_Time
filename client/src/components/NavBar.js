@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import '../NavBar.css'; // Import the CSS file
+import '../NavBar.css'; 
+import logo from '../assets/Mind_Time.png';
 
 function NavBar() {
   const { isLoggedIn, logout } = useAuth();
 
   return (
     <nav>
+      <img src={logo} alt="Mind_Time" className="logo" />
       <Link to="/">Home</Link>
       <Link to="/calendar">Calendar</Link>
       <Link to="/journals">Journals</Link>
