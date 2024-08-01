@@ -1,43 +1,33 @@
-/* General styles for the mood card */
+/* src/components/MoodCard.css */
 .mood-card {
-  border: 2px solid lightgrey;
-  border-radius: 10px;
+  background-color: #b7cede; /* Light slate blue background */
   padding: 20px;
-  margin: 20px 30px 20px 40px; /* Add more left margin */
-  text-align: center;
-  width: 300px;  /* Set a fixed width */
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fff;
-  box-sizing: border-box; /* Ensure padding is included in the height */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mood-card h3 {
-  margin: 0;
-  color: #333;
+  margin-top: 0;
+  color: #767bb2; /* Dark slate blue */
 }
 
 .mood-card p {
-  color: #666;
-  margin: 8px 0;
+  color: #333; /* Dark text for readability */
+  font-size: 1.1em;
 }
 
 .mood-card button {
-  display: block;
-  width: 100%;
+  margin-top: 10px;
   padding: 8px 16px;
-  background-color: #5580a0;
-  border: none;
-  border-radius: 4px;
+  background-color: #8cabc2; /* Slate blue */
   color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 8px;
-  box-sizing: border-box; /* Ensure padding is included in the height */
+  margin-right: 10px;
 }
 
 .mood-card button:hover {
-  background-color: #50697d;
+  background-color: #767bb2; /* Dark slate blue */
 }
-

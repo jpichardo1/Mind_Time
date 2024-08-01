@@ -4,13 +4,11 @@ import '../Home.css';
 function Home() {
   return (
     <div className="home-container">
-      {/* Header Section */}
       <header className="home-header">
         <h1>Welcome to Mind Time</h1>
         <p>Organize your life and reflect on your thoughts in a meaningful way.</p>
       </header>
 
-      {/* Main Content Section */}
       <section className="home-content">
         <h2>Our Approach</h2>
         <p>
@@ -18,7 +16,6 @@ function Home() {
         </p>
       </section>
 
-      {/* Key Features Section */}
       <section className="home-content">
         <h2>Key Features</h2>
         <ul>
@@ -27,7 +24,6 @@ function Home() {
         </ul>
       </section>
 
-      {/* Informative Facts Section */}
       <section className="home-facts">
         <h2>Did You Know?</h2>
         <div className="fact-box">

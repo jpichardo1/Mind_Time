@@ -1,0 +1,94 @@
+/* General styles for the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f7f7f7; /* Light grey background */
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Increased max-width for longer input boxes */
+  margin: 20px auto;
+}
+
+/* Styling for input fields, textarea, and select dropdown */
+form input,
+form textarea,
+form select {
+  width: 220%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s;
+  background-color: #f9f9f9; /* Light background for input fields */
+}
+
+/* Focus state for inputs, textarea, and select */
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #5580a0; /* Blue border on focus */
+  outline: none;
+}
+
+/* Styling specifically for textarea */
+form textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px;
+}
+
+/* Styling specifically for the DatePicker input */
+.date-picker-input {
+  width: 75%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px;
+  font-size: 1em;
+  background-color: #f9f9f9; /* Light background */
+  transition: border-color 0.3s;
+}
+
+.date-picker-input:focus {
+  border-color: #5580a0; /* Blue border on focus */
+  outline: none;
+}
+
+/* Styling for the submit button */
+form button {
+  align-self: flex-end;
+  background-color: #5580a0; /* Blue background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+/* Hover and disabled states for the button */
+form button:hover:not(:disabled) {
+  background-color: #335b7a; /* Darker blue on hover */
+}
+
+form button:disabled {
+  background-color: #bbb; /* Grey background when disabled */
+  cursor: not-allowed;
+}
+
+/* Specific styling for the select dropdown */
+form select {
+  appearance: none; /* Remove default dropdown styling */
+  background-color: #f9f9f9; /* Light background */
+  border: 1px solid #ccc; /* Match input field border */
+  border-radius: 4px;
+  padding-right: 30px; /* Space for custom arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="none" stroke="%23333" stroke-width="2" d="M1 3l4 4 4-4"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 10px 10px;
+}
+

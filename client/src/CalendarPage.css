@@ -1,77 +1,94 @@
-/* src/components/CalendarPage.css */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ebebeb; /* Light grey background */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1, h2 {
-    color: #767bb2; /* Dark slate blue */
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .add-task {
-    background-color: #dde8ee; /* Pale blue */
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .add-task input, .add-task .react-datepicker-wrapper {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #b7cede; /* Light slate blue */
-    border-radius: 5px;
-  }
-  
-  .add-task button {
-    padding: 10px 20px;
-    background-color: #8cabc2; /* Slate blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .add-task button:hover {
-    background-color: #767bb2; /* Dark slate blue */
-  }
-  
-  .calendar {
-    background-color: #f5f5f5; /* Slightly lighter grey */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .task-form {
-    background-color: #dde8ee; /* Pale blue */
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .task-form button {
-    padding: 10px 20px;
-    background-color: #8cabc2; /* Slate blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .task-form button:hover {
-    background-color: #767bb2; /* Dark slate blue */
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ebebeb; /* Light grey background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #767bb2; /* Dark slate blue */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-task {
+  background-color: #dde8ee; /* Pale blue */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-task input, .add-task .react-datepicker-wrapper input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border: none; /* Removed border */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box-shadow for depth */
+}
+
+.add-task button {
+  padding: 10px 20px;
+  background-color: #8cabc2; /* Slate blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-task button:hover {
+  background-color: #767bb2; /* Dark slate blue */
+}
+
+.calendar {
+  background-color: #f5f5f5; /* Slightly lighter grey */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+  background-color: #dde8ee; /* Pale blue */
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  background-color: #8cabc2; /* Slate blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.task-form button:hover {
+  background-color: #767bb2; /* Dark slate blue */
+}
+
+.react-datepicker__navigation {
+  width: 15px; 
+  height: 15px; 
+}
+
+.react-datepicker__navigation-icon::before {
+  border-width: 2px 2px 5 5; 
+  width: 6px; 
+  height: 6px; 
+}
+
+.react-datepicker__navigation--previous {
+  left: 15px; 
+}
+
+.react-datepicker__navigation--next {
+  right: 15px; 
+}
